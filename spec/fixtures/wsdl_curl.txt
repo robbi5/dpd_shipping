@@ -1,0 +1,310 @@
+HTTP/1.1 200 OK
+Cache-Control: private, max-age=0
+Content-Length: 15095
+Content-Type: text/xml; charset=utf-8
+Server: Microsoft-IIS/8.0
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Fri, 09 Aug 2013 16:16:19 GMT
+Connection: keep-alive
+
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://iloxx.de/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://iloxx.de/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://iloxx.de/">
+      <s:element name="ppvAddOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ppvOrderRequest" type="tns:ppvOrderRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ppvOrderRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderAction" type="tns:OrderActionType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceSettings" type="tns:ServiceSettings" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerCredentials" type="tns:PartnerCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCredentials" type="tns:UserCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderLabel" type="tns:OrderLabel" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ppvOrderDataArray" type="tns:ArrayOfPpvOrderData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OrderActionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="check" />
+          <s:enumeration value="addOrder" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ServiceSettings">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorLanguage" type="tns:ErrorLanguageType" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountrySettings" type="tns:CountrySettingType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ZipCodeSetting" type="tns:ZipCodeSettingType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ErrorLanguageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="German" />
+          <s:enumeration value="English" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CountrySettingType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Alpha3" />
+          <s:enumeration value="ISO3166" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ZipCodeSettingType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ZipCodeAsSingleValue" />
+          <s:enumeration value="ZipCodeInlineCityName" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="PartnerCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerKey" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserToken" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderLabel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LabelSize" type="tns:LabelSizeType" />
+          <s:element minOccurs="1" maxOccurs="1" name="LabelStartPosition" type="tns:LabelStartPositionType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LabelSizeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="MultiLabel_A4" />
+          <s:enumeration value="SingleLabel_A6" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LabelStartPositionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="UpperLeft" />
+          <s:enumeration value="UpperRight" />
+          <s:enumeration value="LowerLeft" />
+          <s:enumeration value="LowerRight" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPpvOrderData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ppvOrderData" nillable="true" type="tns:ppvOrderData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ppvOrderData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerOrderReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Weight" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipService" type="tns:ShipServiceType" />
+          <s:element minOccurs="1" maxOccurs="1" name="CODAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipAddress" type="tns:ShipAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackURL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ShipServiceType">
+        <s:restriction base="s:string">
+          <s:enumeration value="dpdNormalpaket" />
+          <s:enumeration value="dpdNormalpaketCOD" />
+          <s:enumeration value="dpdNormalpaketFlex" />
+          <s:enumeration value="dpdExpress10" />
+          <s:enumeration value="dpdExpress10COD" />
+          <s:enumeration value="dpdExpress12" />
+          <s:enumeration value="dpdExpress12COD" />
+          <s:enumeration value="dpdExpress18" />
+          <s:enumeration value="dpdExpress18COD" />
+          <s:enumeration value="dpdExpressSamstag12" />
+          <s:enumeration value="dpdExpressSamstag12COD" />
+          <s:enumeration value="dpdShopRetoure" />
+          <s:enumeration value="dpdRetourePickup" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ShipAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SexCode" type="tns:SexCodeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SexCodeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoSexCode" />
+          <s:enumeration value="Male" />
+          <s:enumeration value="Female" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ppvAddOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ppvAddOrderResult" type="tns:ppvOrderResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ppvOrderResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ack" type="tns:AckType" />
+          <s:element minOccurs="0" maxOccurs="1" name="LabelPDFStream" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDataArray" type="tns:ArrayOfResponseData" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDataArray" type="tns:ArrayOfErrorData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AckType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Success" />
+          <s:enumeration value="Failure" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfResponseData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResponseData" nillable="true" type="tns:ResponseData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ResponseData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerOrderReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParcelNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfErrorData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ErrorData" nillable="true" type="tns:ErrorData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ErrorData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ppvGetDailyTransactionList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ppvDailyTransactionRequest" type="tns:ppvDailyTransactionRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ppvDailyTransactionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartnerCredentials" type="tns:PartnerCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCredentials" type="tns:UserCredentials" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionListDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionListType" type="tns:DailyTransactionListType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DailyTransactionListType">
+        <s:restriction base="s:string">
+          <s:enumeration value="noSelection" />
+          <s:enumeration value="DPD" />
+          <s:enumeration value="Grosspaket" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ppvGetDailyTransactionListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ppvGetDailyTransactionListResult" type="tns:ppvDailyTransactionResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ppvDailyTransactionResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ack" type="tns:AckType" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionListPDFStream" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionListPDFUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorDataArray" type="tns:ArrayOfErrorData" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ppvAddOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ppvAddOrder" />
+  </wsdl:message>
+  <wsdl:message name="ppvAddOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ppvAddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ppvGetDailyTransactionListSoapIn">
+    <wsdl:part name="parameters" element="tns:ppvGetDailyTransactionList" />
+  </wsdl:message>
+  <wsdl:message name="ppvGetDailyTransactionListSoapOut">
+    <wsdl:part name="parameters" element="tns:ppvGetDailyTransactionListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ppvapiSoap">
+    <wsdl:operation name="ppvAddOrder">
+      <wsdl:input message="tns:ppvAddOrderSoapIn" />
+      <wsdl:output message="tns:ppvAddOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ppvGetDailyTransactionList">
+      <wsdl:input message="tns:ppvGetDailyTransactionListSoapIn" />
+      <wsdl:output message="tns:ppvGetDailyTransactionListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ppvapiSoap" type="tns:ppvapiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ppvAddOrder">
+      <soap:operation soapAction="http://iloxx.de/ppvAddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ppvGetDailyTransactionList">
+      <soap:operation soapAction="http://iloxx.de/ppvGetDailyTransactionList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ppvapiSoap12" type="tns:ppvapiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ppvAddOrder">
+      <soap12:operation soapAction="http://iloxx.de/ppvAddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ppvGetDailyTransactionList">
+      <soap12:operation soapAction="http://iloxx.de/ppvGetDailyTransactionList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ppvapi">
+    <wsdl:port name="ppvapiSoap" binding="tns:ppvapiSoap">
+      <soap:address location="http://qa.www.iloxx.de/iloxxapi/ppvapi.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ppvapiSoap12" binding="tns:ppvapiSoap12">
+      <soap12:address location="http://qa.www.iloxx.de/iloxxapi/ppvapi.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
