@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.license       = 'MIT'
 
   gem.add_dependency "savon", "~> 2.2.0"
+  gem.add_development_dependency "rake"
   gem.add_development_dependency "rspec", "~> 2.11.0"
   gem.add_development_dependency "webmock", "~> 1.13.0"
 
