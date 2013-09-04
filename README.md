@@ -1,5 +1,7 @@
 # Iloxx::Shipping
 
+[![Gem Version](https://badge.fury.io/rb/iloxx_shipping.png)](http://badge.fury.io/rb/iloxx_shipping) [![Build Status](https://travis-ci.org/robbi5/iloxx_shipping.png)](https://travis-ci.org/robbi5/iloxx_shipping)
+
 This gem is a wrapper around the SOAP-based API provided by [iloxx](http://iloxx.de). It allows you to build and send a shipment request and return a shipping label and the parcel numbers.
 
 ## Installation
