@@ -33,4 +33,4 @@ def stub_wsdl
   stub_request(:get, "http://qa.www.iloxx.de/iloxxapi/ppvapi.asmx?WSDL").to_return(raw_response_file)
 end
 
-require 'iloxx_shipping'
+require 'dpd_shipping'

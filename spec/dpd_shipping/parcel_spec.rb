@@ -1,10 +1,10 @@
 # encoding: UTF-8
 require 'spec_helper'
 
-describe Iloxx::Shipping::Parcel do
+describe Dpd::Shipping::Parcel do
 
   before(:all) do
-    @receiver = Iloxx::Shipping::Address.new({
+    @receiver = Dpd::Shipping::Address.new({
       :name => "Lilly Lox",
       :street => "Gutenstetter Str. 8b",
       :zip => "90449",
@@ -14,11 +14,11 @@ describe Iloxx::Shipping::Parcel do
   end
 
   it "should generate simple xml for a simple parcel" do
-    parcel = Iloxx::Shipping::Parcel.new(
+    parcel = Dpd::Shipping::Parcel.new(
       weight: 1.25,
       content: "Stones",
       address: @receiver,
-      service: Iloxx::Shipping::NormalpaketService.new,
+      service: Dpd::Shipping::NormalpaketService.new,
       reference: "Order #1234",
     )
 

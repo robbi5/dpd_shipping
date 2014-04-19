@@ -1,17 +1,14 @@
-# Iloxx::Shipping
+# Dpd::Shipping
 
-[![Gem Version](https://img.shields.io/gem/v/iloxx_shipping.svg)](http://rubygems.org/gems/iloxx_shipping) [![Build Status](https://travis-ci.org/robbi5/iloxx_shipping.svg)](https://travis-ci.org/robbi5/iloxx_shipping)
+[![Gem Version](https://img.shields.io/gem/v/dpd_shipping.svg)](http://rubygems.org/gems/dpd_shipping) [![Build Status](https://travis-ci.org/robbi5/dpd_shipping.svg)](https://travis-ci.org/robbi5/dpd_shipping)
 
-This gem is a wrapper around the SOAP-based API provided by [iloxx](http://iloxx.de). It allows you to build and send a shipment request and return a shipping label and the parcel numbers.
-
-## DEPRECATED
-This gem has been renamed to [dpd_shipping](https://github.com/robbi5/dpd_shipping).
+This gem is a wrapper around the SOAP-based API provided by [iloxx](http://iloxx.de). It works both for DPD and iloxx customers. It allows you to build and send a shipment request and return a shipping label and the parcel numbers. The gem was formerly known as iloxx_shipping.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'iloxx_shipping'
+    gem 'dpd_shipping'
 
 And then execute:
 
@@ -19,13 +16,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install iloxx_shipping
+    $ gem install dpd_shipping
 
 ## Usage
 
 1. Create a new receiver address:
 
-        receiver = Iloxx::Shipping::Address.new({
+        receiver = Dpd::Shipping::Address.new({
           :name => "Lilly Lox",
           :street => "Gutenstetter Str. 8b",
           :zip => "90449",
@@ -35,11 +32,11 @@ Or install it yourself as:
 
 2. Create a new parcel
 
-        parcel = Iloxx::Shipping::Parcel.new(
+        parcel = Dpd::Shipping::Parcel.new(
           weight: 1.25,
           content: "Stones",
           address: receiver,
-          service: Iloxx::Shipping::NormalpaketService.new,
+          service: Dpd::Shipping::NormalpaketService.new,
           # ^- or use ExpressService or RetoureService (with parameters) instead
           reference: "Order #1234",
         )
@@ -47,10 +44,10 @@ Or install it yourself as:
 3. Submit your parcel
 
         config = {
-          user: "Your Iloxx User ID",
-          token: "Your Iloxx User Token",
+          user: "Your DPD/iloxx User ID",
+          token: "Your DPD/iloxx User Token",
         }
-        api = Iloxx::Shipping::API.new(config, {
+        api = Dpd::Shipping::API.new(config, {
           test: true # If test is set, all API calls go against the test system
         })
         shipment_date = Date.today

@@ -1,5 +1,5 @@
 # encoding: UTF-8
-module Iloxx
+module Dpd
   module Shipping
     class PartnerAuthenticationError < StandardError; end
     class AuthenticationError < StandardError; end

@@ -2,10 +2,10 @@
 require 'spec_helper'
 require 'date'
 
-describe Iloxx::Shipping::OrderRequest do
+describe Dpd::Shipping::OrderRequest do
 
   before(:all) do
-    @receiver = Iloxx::Shipping::Address.new(
+    @receiver = Dpd::Shipping::Address.new(
       name: "Lilly Lox",
       street: "Gutenstetter Str. 8b",
       zip: "90449",
@@ -13,18 +13,18 @@ describe Iloxx::Shipping::OrderRequest do
       country_code: "DE"
     )
 
-    @parcel = Iloxx::Shipping::Parcel.new(
+    @parcel = Dpd::Shipping::Parcel.new(
       weight: 1.25,
       content: "Stones",
       address: @receiver,
-      service: Iloxx::Shipping::NormalpaketService.new,
+      service: Dpd::Shipping::NormalpaketService.new,
       reference: "Order #1234",
     )
   end
 
   it "should generate xml for a normal request" do
-    request = Iloxx::Shipping::OrderRequest.new(
-      :version => Iloxx::Shipping::API::API_VERSION,
+    request = Dpd::Shipping::OrderRequest.new(
+      :version => Dpd::Shipping::API::API_VERSION,
       :auth => {
         :partner => {
           :name => "testpartner",

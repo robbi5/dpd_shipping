@@ -1,4 +1,4 @@
-module Iloxx
+module Dpd
   module Shipping
     class Parcel
       attr_accessor :internal_reference, :customer, :reference, :content, :weight, :service, :address, :track_url

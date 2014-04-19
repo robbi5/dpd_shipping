@@ -1,4 +1,4 @@
-module Iloxx
+module Dpd
   module Shipping
     class ExpressService < Service
       attr_reader :time

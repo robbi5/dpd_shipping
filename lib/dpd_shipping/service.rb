@@ -1,4 +1,4 @@
-module Iloxx
+module Dpd
   module Shipping
     class Service
       attr_reader :cod_amount, :service_type

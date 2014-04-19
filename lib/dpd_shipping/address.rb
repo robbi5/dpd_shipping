@@ -1,4 +1,4 @@
-module Iloxx
+module Dpd
   module Shipping
     class Address
       attr_accessor :company, :sex, :name, :street, :zip, :city, :state, :country_code, :email, :phone
