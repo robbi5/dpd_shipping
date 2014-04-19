@@ -4,6 +4,9 @@
 
 This gem is a wrapper around the SOAP-based API provided by [iloxx](http://iloxx.de). It allows you to build and send a shipment request and return a shipping label and the parcel numbers.
 
+## DEPRECATED
+This gem has been renamed to [dpd_shipping](https://github.com/robbi5/dpd_shipping).
+
 ## Installation
 
 Add this line to your application's Gemfile:

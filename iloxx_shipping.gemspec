@@ -8,10 +8,16 @@ Gem::Specification.new do |gem|
   gem.version       = Iloxx::Shipping::VERSION
   gem.authors       = ["Maximilian Richt"]
   gem.email         = ["maxi@richt.name"]
-  gem.description   = %q{A simple way to access the iloxx shipping API}
-  gem.summary       = %q{A wrapper around the SOAP-based iloxx shipping web service. Generate a shipping request and get a label back.}
+  gem.description   = %q{(DEPRECATED, see dpd_shipping) A simple way to access the iloxx shipping API}
+  gem.summary       = %q{(DEPRECATED, see dpd_shipping) A wrapper around the SOAP-based iloxx shipping web service. Generate a shipping request and get a label back.}
   gem.homepage      = "https://github.com/robbi5/iloxx_shipping"
   gem.license       = 'MIT'
+
+  gem.post_install_message = <<-MESSAGE
+ !    The 'iloxx_shipping' gem has been deprecated and replaced by 'dpd_shipping'.
+ !    See: https://rubygems.org/gems/dpd_shipping
+ !    And: https://github.com/robbi5/dpd_shipping
+  MESSAGE
 
   gem.add_dependency "savon", "~> 2.2.0"
   gem.add_development_dependency "rake"
